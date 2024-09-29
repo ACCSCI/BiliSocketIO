@@ -64,7 +64,7 @@ if __name__=="__main__":
     logger.addFilter(HttpsErrSuppressFilter())
     logger.propagate = False
     # 打印启动信息
-    print(f" * Running on http://127.0.0.1:8000/ (Press CTRL+C to quit)")
+    print(f" * Running on http://0.0.0.0:8000/ (Press CTRL+C to quit)")
     # 使用 gevent 的 WSGIServer 启动应用
-    server = pywsgi.WSGIServer(('127.0.0.1', 8000), app, handler_class=WebSocketHandler,error_log=logger)
+    server = pywsgi.WSGIServer(('0.0.0.0', 8000), app, handler_class=WebSocketHandler,error_log=logger)
     server.serve_forever()
